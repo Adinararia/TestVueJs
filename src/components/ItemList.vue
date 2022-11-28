@@ -1,15 +1,23 @@
 <template>
 <div>
-  <v-alert class="centeredCustom text-md-center"
+ 
+  
+<v-dialog
+      v-model="this.viewAlert.status"
+      width="23%"
+      height="5%"
+      class="justify-end align-start"
+
+>
+<v-alert class=" text-md-center" 
   v-if="this.viewAlert.status"
   :color="this.viewAlert.color"
-    height="5"
-    width="20%"
+  border="top"
+  width="100%" 
     >
-  
      {{this.viewAlert.text}}
-  
 </v-alert>
+</v-dialog>
     <v-container class="container"> 
       <v-row >
         <v-col
@@ -68,6 +76,5 @@ export default ({
   background: #FFF;
   padding: 50px;
 }
-
 </style>
 

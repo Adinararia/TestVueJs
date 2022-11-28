@@ -3,7 +3,6 @@
     color="#f2f0eb"
     class="my-15 centeredCustomForCatalog" 
     max-width="100%"
-    
   >
 
     <v-img
@@ -16,7 +15,7 @@
     <v-card-text>
       <div class="my-4 text-subtitle-1"
       >
-        Доступно {{product.count}}
+        Доступно {{checkCount(product.id)}}
       </div>
 
       <div class="my-4 text-subtitle-1">
@@ -111,7 +110,12 @@ export default ({
     },
     checkCount(id){
       // проверка допустимого количества в режиме онлайн
-          this.$store.getters.getAvailableProduct(id);
+      if(this.$store.getters.getProductInBasket(id)){
+       this.storeItem = this.$store.getters.getProductInBasket(id)
+        return this.product.count- this.storeItem.quantity
+      }else{
+          return this.product.count
+      }
     }
   },
   computed:{ 

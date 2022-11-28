@@ -40,9 +40,6 @@ export default createStore({
               }
             ],
             cart:[],
-            tax:'',
-            totalPrice: '',
-            totalPriceWithTax: '',
   },
   getters: {
     getProducts: state => state.products,
